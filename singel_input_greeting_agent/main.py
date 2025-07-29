@@ -19,7 +19,7 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler('greeting_agent/langgraph_agent.log')
+        logging.FileHandler('singel_input_greeting_agent/langgraph_agent.log')
     ]
 )
 
@@ -106,7 +106,7 @@ def create_agent_graph() -> StateGraph:
 
 def save_graph_image(app, filename: str = "graph_visualization.png") -> str:
     """
-    Saves the graph visualization to a file in the greeting_agent directory.
+    Saves the graph visualization to a file in the singel_input_greeting_agent directory.
     
     Args:
         app: The compiled graph to visualize
@@ -116,8 +116,8 @@ def save_graph_image(app, filename: str = "graph_visualization.png") -> str:
         str: Path to the saved image file
     """
     try:
-        # Create the greeting_agent directory if it doesn't exist
-        output_dir = os.path.join(os.getcwd(), "greeting_agent")
+        # Create the singel_input_greeting_agent directory if it doesn't exist
+        output_dir = os.path.join(os.getcwd(), "singel_input_greeting_agent")
         os.makedirs(output_dir, exist_ok=True)
         logger.debug(f"Output directory ensured: {output_dir}")
         
@@ -125,7 +125,7 @@ def save_graph_image(app, filename: str = "graph_visualization.png") -> str:
         mermaid_png = app.get_graph().draw_mermaid_png()
         logger.debug("Mermaid diagram generated successfully")
         
-        # Save to file in the greeting_agent directory
+        # Save to file in the singel_input_greeting_agent directory
         filepath = os.path.join(output_dir, filename)
         with open(filepath, "wb") as f:
             f.write(mermaid_png)
