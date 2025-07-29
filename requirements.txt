@@ -1,0 +1,16 @@
+# LanhGraph related pacakages
+langgraph
+langsmith
+
+# Python packages for data science and machine learning
+ipython
+
+
+# >> # Create a new one
+# >> python -m venv .venv
+# >> 
+# >> # Activate it
+# >> .\.venv\Scripts\Activate.ps1
+# >> 
+# >> # Install packages
+# >> pip install -r requirements.txt
