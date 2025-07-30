@@ -20,7 +20,7 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler('sequential_graph_agent/langgraph_agent.log')
+        logging.FileHandler('sequential_graph/langgraph_agent.log')
     ]
 )
 
@@ -229,7 +229,7 @@ def create_agent_graph() -> StateGraph:
 
 def save_graph_image(app, filename: str = "graph_visualization.png") -> str:
     """
-    Saves the graph visualization to a file in the sequential_graph_agent directory.
+    Saves the graph visualization to a file in the sequential_graph directory.
     
     This function generates a Mermaid diagram representation of the sequential
     graph structure and saves it as a PNG image for visualization purposes.
@@ -245,13 +245,13 @@ def save_graph_image(app, filename: str = "graph_visualization.png") -> str:
         Exception: If image generation or saving fails
         
     File Location:
-        Saves to: ./sequential_graph_agent/graph_visualization.png
+        Saves to: ./sequential_graph/graph_visualization.png
     """
     logger.info("Generating and saving graph visualization")
     
     try:
-        # Create the sequential_graph_agent directory if it doesn't exist
-        output_dir = os.path.join(os.getcwd(), "sequential_graph_agent")
+        # Create the sequential_graph directory if it doesn't exist
+        output_dir = os.path.join(os.getcwd(), "sequential_graph")
         os.makedirs(output_dir, exist_ok=True)
         logger.debug(f"Output directory ensured: {output_dir}")
         
@@ -259,7 +259,7 @@ def save_graph_image(app, filename: str = "graph_visualization.png") -> str:
         mermaid_png = app.get_graph().draw_mermaid_png()
         logger.debug("Mermaid diagram generated successfully")
         
-        # Save to file in the sequential_graph_agent directory
+        # Save to file in the sequential_graph directory
         filepath = os.path.join(output_dir, filename)
         with open(filepath, "wb") as f:
             f.write(mermaid_png)
