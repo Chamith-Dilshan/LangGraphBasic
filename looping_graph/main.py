@@ -298,7 +298,7 @@ def evaluation_function(state: AgentState) -> str:
     try:
         # Check various end conditions
         if state["phase"] == "correct":
-            logger.info("🎉 Game ending: Correct guess found!")
+            logger.info("Game ending: Correct guess found!")
             return "end"
         
         if state["count"] >= state["attempts"]:
@@ -314,7 +314,7 @@ def evaluation_function(state: AgentState) -> str:
             return "end"
         
         # Game continues
-        logger.info("🔄 Game continuing: Making another guess")
+        logger.info(" Game continuing: Making another guess")
         return "continue"
        
     except Exception as e:
@@ -567,7 +567,7 @@ def main() -> None:
         print("="*60)
         
         if result["phase"] == "correct":
-            print(f"🎉 SUCCESS! I guessed your number: {result['guess_num']}")
+            print(f" SUCCESS! I guessed your number: {result['guess_num']}")
             print(f"📊 It took me {result['count']} attempts")
         else:
             print(f"😞 Game ended without finding the number")
