@@ -1,8 +1,5 @@
-# LanhGraph related pacakages
 langgraph
-langsmith
-
-# Python packages for data science and machine learning
+python-dotenv
 ipython
 
 
